@@ -1,0 +1,14 @@
+{
+  "name": "observatorio-ucalp",
+  "version": "5.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Observatorio UCALP de inteligencia artificial por región, facultad y carrera",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

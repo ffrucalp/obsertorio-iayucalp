@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b5e7d">
+  <meta name="description" content="Observatorio UCALP de inteligencia artificial. Noticias sobre IA en Argentina, Latinoamérica, el mundo y las universidades, por facultad y carrera.">
+  <title>Observatorio UCALP · Inteligencia Artificial en todas las disciplinas</title>
+  <link rel="icon" href="/assets/favicon-ucalp.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <div class="top-stripe"></div>
+  <header class="header">
+    <div class="wrap header-main">
+      <div class="brand-block">
+        <a class="logo-link" href="/" aria-label="Volver al Observatorio UCALP"><img src="/assets/escudo-ucalp.png" width="76" height="76" alt="Escudo de la Universidad Católica de La Plata"></a>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <div class="brand-identity"><span>UNIVERSIDAD CATÓLICA DE LA PLATA</span><strong>Observatorio <em>de IA</em></strong></div>
+      </div>
+      <div class="header-right"><span class="header-tag"><span class="status-dot"></span> INTELIGENCIA ARTIFICIAL · NOTICIAS</span><a href="https://www.ucalp.edu.ar/" target="_blank" rel="noopener noreferrer">Sitio UCALP <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-titulo">
+          <div class="hero-content">
+            <p class="eyebrow"><span class="rule"></span> OBSERVATORIO UCALP · INTELIGENCIA ARTIFICIAL</p>
+            <h1 id="hero-titulo">La IA transforma cada disciplina.<br><em>Exploremos sus impactos.</em></h1>
+            <p class="hero-desc">Noticias, investigaciones y debates sobre <strong>inteligencia artificial</strong> vinculados con las facultades y carreras de la Universidad Católica de La Plata.</p>
+            <div class="hero-foot"><span>7 facultades</span><i></i><span>Búsqueda multifuente</span><i></i><span>Solo noticias sobre IA</span></div>
+          </div>
+          <div class="hero-seal" aria-hidden="true">IA <span>↗</span></div>
+        </section>
+      <nav class="geonav" aria-label="Secciones del observatorio" id="secciones">
+        <button type="button" class="geotab active" data-seccion="argentina" aria-current="page"><span>01 / PAÍS</span><strong>Argentina</strong><b>↗</b></button>
+        <button type="button" class="geotab" data-seccion="latinoamerica"><span>02 / REGIÓN</span><strong>Latinoamérica</strong><b>↗</b></button>
+        <button type="button" class="geotab" data-seccion="internacional"><span>03 / MUNDO</span><strong>Internacional</strong><b>↗</b></button>
+        <button type="button" class="geotab" data-seccion="universidades"><span>04 / ACADEMIA</span><strong>Universidades</strong><b>↗</b></button>
+      </nav>
+      <div class="portal">
+        <aside class="filters" aria-labelledby="filtros-titulo">
+          <div class="filters-head"><div class="upper">IA POR DISCIPLINA</div><h2 id="filtros-titulo">Cada carrera.<br><em>Su mirada sobre la IA.</em></h2><p>Elegí una facultad y, opcionalmente, una carrera: solo verás noticias de inteligencia artificial relacionadas con ese campo.</p></div>
+          <div class="filters-label"><span>FACULTADES</span><span id="fac-num">07</span></div>
+          <div id="facultades" class="faculty-list" aria-label="Seleccionar facultad"><div class="loading-inline">Cargando facultades…</div></div>
+          <div class="career-box"><label for="carrera" class="filters-label">CARRERA <span>OPCIONAL</span></label><select id="carrera" disabled><option value="">Todas las carreras</option></select><p id="carrera-hint">Elegí primero una facultad.</p></div>
+          <div class="focus-box" id="focus-box"><span class="upper">CRITERIO DE BÚSQUEDA</span><p>Noticias sobre inteligencia artificial y sus aplicaciones en todas las disciplinas.</p></div>
+          <button type="button" class="reset" id="reset-facultad">↺ Ver todas las disciplinas</button>
+        </aside>
+        <section class="feed-area" aria-labelledby="feed-titulo">
+          <div class="feed-toolbar"><div><span class="upper">/ RADAR DE INTELIGENCIA ARTIFICIAL</span><h2 id="feed-titulo">IA en <em>Argentina</em></h2><p id="feed-subtitulo">Noticias de IA filtradas por facultades y carreras de la UCALP.</p></div><div class="head-actions"><span class="updated" id="actualizado">Sin consultar</span><button class="icon-btn" id="recargar" type="button" aria-label="Actualizar resultados" title="Actualizar noticias">↻</button></div></div>
+          <form id="buscar-form" class="searchbar" role="search"><span class="magnify" aria-hidden="true">⌕</span><label for="buscar" class="sr-only">Buscar noticias</label><input id="buscar" type="search" placeholder="Buscar dentro de IA: evaluación, diagnósticos, privacidad…" maxlength="90"><button type="submit">Buscar <span aria-hidden="true">↗</span></button></form>
+          <div class="options"><span class="ia-obligatorio" title="Todas las consultas y noticias se filtran por IA">✦ FILTRO OBLIGATORIO: IA</span><label for="periodo">PERÍODO <select id="periodo"><option value="7">7 días</option><option value="30">30 días</option><option value="90">90 días</option><option value="180">180 días</option><option value="365">1 año</option><option value="desde2026" selected>Desde 01/01/2026</option></select></label><label for="medio">MEDIO <select id="medio"><option value="todos">Todos los medios</option><option value="LA NACION">LA NACION</option><option value="Clarín">Clarín</option><option value="Infobae">Infobae</option><option value="otros">Otros medios</option></select></label><label for="orden">ORDEN <select id="orden"><option value="fecha">Más recientes</option><option value="fuente">Por fuente</option></select></label><button class="filter-clear" id="limpiar-texto" type="button">Limpiar búsqueda ×</button></div>
+          <div id="fuentes-info" class="sources-info" aria-live="polite">Fuentes: Google News · Bing News · GDELT · RSS editoriales</div><div id="media-links" class="direct-sources" aria-label="Continuar búsqueda en diarios argentinos"></div><div class="results-bar"><div class="view-switch" role="tablist" aria-label="Vista de noticias"><button type="button" role="tab" data-vista="noticias" aria-selected="true" class="view active">Noticias <span id="count">—</span></button><button type="button" role="tab" data-vista="guardados" aria-selected="false" class="view">Mi biblioteca <span id="saved-count">0</span></button></div><button id="exportar" type="button" class="export-btn" title="Exportar noticias guardadas a CSV">↧ Exportar guardados</button></div>
+          <p id="contexto" class="contexto">Seleccioná la sección y los filtros para explorar noticias.</p>
+          <div id="estado" aria-live="polite" aria-atomic="true"></div>
+          <div id="resultados" class="news-list"></div>
+          <div id="mas-wrap" class="mas-wrap"></div>
+          <div id="footnote" class="footnote"><span>ⓘ</span> Resultados de Google News, Bing News, GDELT y RSS de medios filtrados por IA, disciplina y procedencia geográfica estimada. Argentina, Latinoamérica e Internacional no mezclan países; Universidades incluye noticias académicas de cualquier región. Algunas publicaciones se clasifican por el país del medio, no por el lugar del acontecimiento. La cobertura no es exhaustiva y cada fuente puede tener restricciones. La búsqueda histórica desde 2026 se realiza por trimestres, pero la disponibilidad depende de cada fuente y no garantiza exhaustividad. Puede haber omisiones o coincidencias imprecisas. Verificá fecha, autor y fuente; no representan comunicaciones oficiales de la UCALP.</div>
+        </section>
+      </div>
+      <section class="lower" aria-label="Recursos institucionales"><div><span class="upper">DE LA ACTUALIDAD A LA INVESTIGACIÓN</span><h2>La IA también<br><em>se piensa.</em></h2></div><div class="lower-links"><a href="https://www.ucalp.edu.ar/" target="_blank" rel="noopener noreferrer"><b>Actualidad institucional UCALP</b><span>Noticias y actividades de nuestra universidad ↗</span></a><a href="https://www.ucalp.edu.ar/universidad/" target="_blank" rel="noopener noreferrer"><b>Oferta académica y facultades</b><span>Consultá información oficial de las carreras ↗</span></a></div></section>
+    </div>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><b>OBSERVATORIO UCALP</b><span>Prototipo académico de monitoreo de noticias sobre IA · No es un canal oficial de comunicaciones de la universidad.</span></div><span>ARGENTINA · LATAM · MUNDO · UNIVERSIDADES</span></div></footer>
+</body>
+</html>

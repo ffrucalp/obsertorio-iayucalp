@@ -1,0 +1,372 @@
+[
+  {
+    "id": "derecho",
+    "nombre": "Derecho y Ciencias Políticas",
+    "corto": "Derecho y Política",
+    "icono": "⚖",
+    "descripcion": "Justicia, instituciones, seguridad y relaciones internacionales.",
+    "url": "https://www.ucalp.edu.ar/facultad/derecho-y-ciencias-politicas/",
+    "carreras": [
+      {
+        "id": "abogacia",
+        "nombre": "Abogacía",
+        "es": "\"reforma judicial\" OR \"derechos humanos\" OR legislación",
+        "en": "\"legal reform\" OR \"human rights\" OR judiciary"
+      },
+      {
+        "id": "politica",
+        "nombre": "Licenciatura en Ciencia Política y Relaciones Internacionales",
+        "es": "\"política internacional\" OR diplomacia OR \"políticas públicas\"",
+        "en": "\"international relations\" OR diplomacy OR \"public policy\""
+      },
+      {
+        "id": "criminalistica",
+        "nombre": "Licenciatura en Criminalística",
+        "es": "criminalística OR \"ciencias forenses\" OR \"evidencia digital\"",
+        "en": "forensics OR \"crime scene investigation\" OR \"digital evidence\""
+      },
+      {
+        "id": "escribania",
+        "nombre": "Escribanía",
+        "es": "notariado OR \"escritura pública\" OR \"derecho registral\"",
+        "en": "notary OR \"property law\" OR \"digital notarization\""
+      },
+      {
+        "id": "martillero",
+        "nombre": "Martillero y Corredor de Comercio",
+        "es": "\"mercado inmobiliario\" OR subastas OR \"corretaje inmobiliario\"",
+        "en": "\"real estate market\" OR auctions OR brokerage"
+      },
+      {
+        "id": "seguridad",
+        "nombre": "Licenciatura en Seguridad",
+        "es": "\"seguridad pública\" OR \"prevención del delito\" OR \"política criminal\"",
+        "en": "\"public safety\" OR \"crime prevention\" OR security policy"
+      }
+    ]
+  },
+  {
+    "id": "arquitectura",
+    "nombre": "Arquitectura y Diseño",
+    "corto": "Arquitectura y Diseño",
+    "icono": "▥",
+    "descripcion": "Urbanismo, sustentabilidad, diseño visual y espacios habitables.",
+    "url": "https://www.ucalp.edu.ar/facultad/arquitectura-y-diseno/",
+    "carreras": [
+      {
+        "id": "arquitectura",
+        "nombre": "Arquitectura",
+        "es": "arquitectura OR urbanismo OR \"construcción sustentable\"",
+        "en": "architecture OR urbanism OR \"sustainable buildings\""
+      },
+      {
+        "id": "interiores",
+        "nombre": "Licenciatura en Diseño de Interiores",
+        "es": "\"diseño de interiores\" OR \"arquitectura interior\" OR \"espacios interiores\"",
+        "en": "\"interior design\" OR \"interior architecture\""
+      },
+      {
+        "id": "visual",
+        "nombre": "Licenciatura en Diseño Visual",
+        "es": "\"diseño gráfico\" OR \"comunicación visual\" OR \"diseño digital\"",
+        "en": "\"graphic design\" OR \"visual communication\" OR \"digital design\""
+      },
+      {
+        "id": "tec-arq",
+        "nombre": "Técnico Universitario en Arquitectura",
+        "es": "arquitectura OR urbanismo OR \"construcción sustentable\"",
+        "en": "architecture OR urbanism OR \"sustainable buildings\""
+      }
+    ]
+  },
+  {
+    "id": "economicas",
+    "nombre": "Ciencias Económicas y Sociales",
+    "corto": "Económicas y Sociales",
+    "icono": "▤",
+    "descripcion": "Economía, empresas, trabajo, marketing y desarrollo social.",
+    "url": "https://www.ucalp.edu.ar/facultad/cs-economicas-y-sociales/",
+    "carreras": [
+      {
+        "id": "administracion",
+        "nombre": "Licenciatura en Administración de Empresas",
+        "es": "\"gestión empresarial\" OR \"administración de empresas\" OR \"estrategia corporativa\"",
+        "en": "\"business management\" OR \"corporate strategy\""
+      },
+      {
+        "id": "economia",
+        "nombre": "Licenciatura en Economía",
+        "es": "inflación OR \"política económica\" OR macroeconomía",
+        "en": "inflation OR \"economic policy\" OR macroeconomics"
+      },
+      {
+        "id": "contabilidad",
+        "nombre": "Contador Público",
+        "es": "\"normas contables\" OR auditoría OR \"información financiera\"",
+        "en": "\"accounting standards\" OR auditing OR \"financial reporting\""
+      },
+      {
+        "id": "marketing",
+        "nombre": "Licenciatura en Marketing",
+        "es": "marketing OR \"comercio electrónico\" OR \"experiencia del cliente\"",
+        "en": "marketing OR \"ecommerce\" OR \"customer experience\""
+      },
+      {
+        "id": "comercializacion",
+        "nombre": "Licenciatura en Comercialización",
+        "es": "comercialización OR \"gestión comercial\" OR \"mercado de consumo\"",
+        "en": "sales management OR commerce OR marketing"
+      },
+      {
+        "id": "rrpp",
+        "nombre": "Licenciatura en Relaciones Públicas",
+        "es": "\"comunicación institucional\" OR \"relaciones públicas\" OR reputación",
+        "en": "\"public relations\" OR \"corporate communications\""
+      },
+      {
+        "id": "rrhh",
+        "nombre": "Licenciatura en Gestión de Recursos Humanos",
+        "es": "\"recursos humanos\" OR \"futuro del trabajo\" OR \"talento laboral\"",
+        "en": "\"human resources\" OR \"future of work\" OR \"talent management\""
+      },
+      {
+        "id": "turismo",
+        "nombre": "Licenciatura en Turismo y Hotelería",
+        "es": "turismo OR hotelería OR \"turismo sostenible\"",
+        "en": "tourism OR hospitality OR \"sustainable tourism\""
+      },
+      {
+        "id": "negocios",
+        "nombre": "Licenciatura en Negocios Digitales",
+        "es": "\"negocios digitales\" OR fintech OR \"economía digital\"",
+        "en": "\"digital business\" OR fintech OR \"digital economy\""
+      },
+      {
+        "id": "trabajosocial",
+        "nombre": "Ciclo de Licenciatura en Trabajo Social",
+        "es": "\"trabajo social\" OR \"inclusión social\" OR pobreza",
+        "en": "\"social work\" OR \"social inclusion\" OR poverty"
+      },
+      {
+        "id": "tec-negocios",
+        "nombre": "Técnico Universitario en Negocios Digitales",
+        "es": "\"negocios digitales\" OR fintech OR \"economía digital\"",
+        "en": "\"digital business\" OR fintech OR \"digital economy\""
+      },
+      {
+        "id": "agencias",
+        "nombre": "Tecnicatura Universitaria en Agencias de Viajes y Turismo",
+        "es": "\"agencias de viajes\" OR turismo OR \"turismo digital\"",
+        "en": "travel agencies OR tourism OR hospitality"
+      }
+    ]
+  },
+  {
+    "id": "exactas",
+    "nombre": "Ciencias Exactas e Ingeniería",
+    "corto": "Exactas e Ingeniería",
+    "icono": "⌘",
+    "descripcion": "Sistemas, datos, ingeniería ambiental, seguridad y tecnología.",
+    "url": "https://www.ucalp.edu.ar/facultad/ciencias-exactas-e-ingenieria/",
+    "carreras": [
+      {
+        "id": "gobernanza",
+        "nombre": "Licenciatura en Gobernanza de Datos",
+        "es": "\"gobernanza de datos\" OR \"calidad de datos\" OR \"interoperabilidad\" OR \"protección de datos\"",
+        "en": "\"data governance\" OR \"data quality\" OR \"data stewardship\" OR \"data privacy\""
+      },
+      {
+        "id": "tec-gobernanza",
+        "nombre": "Técnico Universitario en Gobernanza de Datos",
+        "es": "\"gobernanza de datos\" OR \"calidad de datos\" OR \"interoperabilidad\" OR \"protección de datos\"",
+        "en": "\"data governance\" OR \"data quality\" OR \"data stewardship\" OR \"data privacy\""
+      },
+      {
+        "id": "sistemas",
+        "nombre": "Licenciatura en Sistemas",
+        "es": "\"desarrollo de software\" OR \"inteligencia artificial\" OR ciberseguridad",
+        "en": "\"software engineering\" OR \"artificial intelligence\" OR cybersecurity"
+      },
+      {
+        "id": "analista",
+        "nombre": "Analista de Sistemas",
+        "es": "\"desarrollo de software\" OR \"programación\" OR ciberseguridad",
+        "en": "\"software engineering\" OR coding OR cybersecurity"
+      },
+      {
+        "id": "ambiental",
+        "nombre": "Ingeniería Ambiental",
+        "es": "\"impacto ambiental\" OR \"ingeniería ambiental\" OR \"gestión ambiental\"",
+        "en": "\"environmental engineering\" OR \"environmental impact\" OR sustainability"
+      },
+      {
+        "id": "seguridadlaboral",
+        "nombre": "Licenciatura en Seguridad, Salud y Ambiente Laboral",
+        "es": "\"seguridad laboral\" OR \"salud ocupacional\" OR \"prevención de riesgos\"",
+        "en": "\"occupational health\" OR \"workplace safety\" OR \"risk prevention\""
+      },
+      {
+        "id": "tec-seguridadlaboral",
+        "nombre": "Técnico Universitario en Seguridad, Salud y Ambiente Laboral",
+        "es": "\"seguridad laboral\" OR \"salud ocupacional\" OR \"prevención de riesgos\"",
+        "en": "\"occupational health\" OR \"workplace safety\" OR \"risk prevention\""
+      }
+    ]
+  },
+  {
+    "id": "salud",
+    "nombre": "Ciencias de la Salud",
+    "corto": "Ciencias de la Salud",
+    "icono": "✚",
+    "descripcion": "Salud pública, rehabilitación, nutrición y bienestar integral.",
+    "url": "https://www.ucalp.edu.ar/facultad/ciencias-de-la-salud/",
+    "carreras": [
+      {
+        "id": "fonoaudiologia",
+        "nombre": "Licenciatura en Fonoaudiología",
+        "es": "fonoaudiología OR audiología OR \"trastornos del lenguaje\"",
+        "en": "\"speech therapy\" OR audiology OR \"language disorders\""
+      },
+      {
+        "id": "kinesiologia",
+        "nombre": "Licenciatura en Kinesiología y Fisiatría",
+        "es": "kinesiología OR fisioterapia OR rehabilitación",
+        "en": "physiotherapy OR \"physical therapy\" OR rehabilitation"
+      },
+      {
+        "id": "nutricion",
+        "nombre": "Licenciatura en Nutrición",
+        "es": "nutrición OR \"alimentación saludable\" OR \"salud alimentaria\"",
+        "en": "nutrition OR \"healthy eating\" OR \"public health nutrition\""
+      },
+      {
+        "id": "obstetricia",
+        "nombre": "Licenciatura en Obstetricia",
+        "es": "obstetricia OR \"salud materna\" OR embarazo",
+        "en": "obstetrics OR \"maternal health\" OR pregnancy"
+      },
+      {
+        "id": "terapia",
+        "nombre": "Licenciatura en Terapia Ocupacional",
+        "es": "\"terapia ocupacional\" OR \"rehabilitación funcional\" OR discapacidad",
+        "en": "\"occupational therapy\" OR \"functional rehabilitation\" OR disability"
+      },
+      {
+        "id": "instrumentacion",
+        "nombre": "Ciclo de Licenciatura en Instrumentación Quirúrgica",
+        "es": "\"instrumentación quirúrgica\" OR \"seguridad del paciente\" OR \"cirugía robótica\"",
+        "en": "\"surgical technology\" OR \"patient safety\" OR \"robotic surgery\""
+      }
+    ]
+  },
+  {
+    "id": "humanidades",
+    "nombre": "Humanidades",
+    "corto": "Humanidades",
+    "icono": "✦",
+    "descripcion": "Educación, pensamiento, psicología, comunicación y cultura.",
+    "url": "https://www.ucalp.edu.ar/facultad/humanidades/",
+    "carreras": [
+      {
+        "id": "educacion",
+        "nombre": "Licenciatura en Ciencias de la Educación",
+        "es": "\"innovación educativa\" OR pedagogía OR \"educación superior\"",
+        "en": "\"education research\" OR pedagogy OR \"higher education\""
+      },
+      {
+        "id": "psicologia",
+        "nombre": "Licenciatura en Psicología",
+        "es": "psicología OR \"salud mental\" OR \"psicología clínica\"",
+        "en": "psychology OR \"mental health\" OR \"clinical psychology\""
+      },
+      {
+        "id": "psicopedagogia",
+        "nombre": "Licenciatura en Psicopedagogía",
+        "es": "psicopedagogía OR \"dificultades de aprendizaje\" OR neuroeducación",
+        "en": "\"learning difficulties\" OR \"educational psychology\""
+      },
+      {
+        "id": "filosofia",
+        "nombre": "Licenciatura en Filosofía",
+        "es": "filosofía OR bioética OR \"ética de la inteligencia artificial\"",
+        "en": "philosophy OR bioethics OR \"AI ethics\""
+      },
+      {
+        "id": "letras",
+        "nombre": "Licenciatura en Letras",
+        "es": "literatura OR lingüística OR \"enseñanza de la lengua\"",
+        "en": "literature OR linguistics OR \"language education\""
+      },
+      {
+        "id": "prof-letras",
+        "nombre": "Profesorado Universitario en Letras",
+        "es": "literatura OR lingüística OR \"enseñanza de la lengua\"",
+        "en": "literature OR linguistics OR \"language education\""
+      },
+      {
+        "id": "periodismo",
+        "nombre": "Licenciatura en Periodismo",
+        "es": "periodismo OR \"libertad de prensa\" OR \"medios digitales\"",
+        "en": "journalism OR \"press freedom\" OR \"digital media\""
+      },
+      {
+        "id": "periodismo-deportivo",
+        "nombre": "Tecnicatura Universitaria en Periodismo Deportivo",
+        "es": "\"periodismo deportivo\" OR deporte OR \"medios deportivos\"",
+        "en": "\"sports journalism\" OR \"sports media\""
+      },
+      {
+        "id": "educacionfisica",
+        "nombre": "Profesorado en Educación Física",
+        "es": "\"educación física\" OR \"actividad física\" OR deporte",
+        "en": "\"physical education\" OR sports OR \"exercise science\""
+      },
+      {
+        "id": "lic-educacionfisica",
+        "nombre": "Ciclo de Licenciatura en Educación Física",
+        "es": "\"educación física\" OR \"actividad física\" OR deporte",
+        "en": "\"physical education\" OR sports OR \"exercise science\""
+      },
+      {
+        "id": "historia",
+        "nombre": "Ciclo de Licenciatura en Historia",
+        "es": "historia OR \"patrimonio cultural\" OR \"historia contemporánea\"",
+        "en": "history OR \"cultural heritage\" OR \"contemporary history\""
+      },
+      {
+        "id": "geografia",
+        "nombre": "Ciclo de Licenciatura en Geografía",
+        "es": "geografía OR \"sistemas de información geográfica\" OR territorio",
+        "en": "geography OR GIS OR geospatial"
+      }
+    ]
+  },
+  {
+    "id": "odontologia",
+    "nombre": "Odontología",
+    "corto": "Odontología",
+    "icono": "◈",
+    "descripcion": "Salud bucodental, investigación clínica y tecnología odontológica.",
+    "url": "https://www.ucalp.edu.ar/facultad/odontologia/",
+    "carreras": [
+      {
+        "id": "odontologia",
+        "nombre": "Odontología",
+        "es": "odontología OR \"salud bucal\" OR \"tratamientos dentales\"",
+        "en": "dentistry OR \"oral health\" OR \"dental care\""
+      },
+      {
+        "id": "protesis",
+        "nombre": "Tecnicatura Universitaria en Prótesis Dental",
+        "es": "\"prótesis dental\" OR \"implantología dental\" OR \"laboratorio dental\"",
+        "en": "\"dental prosthetics\" OR \"dental implants\" OR \"dental laboratory\""
+      },
+      {
+        "id": "asistencia",
+        "nombre": "Auxiliar en Asistencia Odontológica",
+        "es": "\"asistencia odontológica\" OR \"higiene dental\" OR \"prevención bucodental\"",
+        "en": "\"dental assisting\" OR \"dental hygiene\" OR \"preventive dentistry\""
+      }
+    ]
+  }
+]
