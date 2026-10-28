@@ -87,7 +87,7 @@ function explicarCero(){
 }
 function renderNoticias(){renderCabecera();const zona=$('#resultados'),st=$('#estado'),more=$('#mas-wrap');more.innerHTML='';st.innerHTML='';
   if(state.vista==='noticias'&&state.cargando){zona.innerHTML='';st.innerHTML='<div class="state loading"><strong>Buscando noticias…</strong>Buscando noticias que relacionen inteligencia artificial y la disciplina seleccionada. Puede tardar unos segundos.</div>';return}
-  if(state.vista==='noticias'&&state.error){zona.innerHTML='';st.innerHTML=`<div class="state error"><strong>No pudimos actualizar el observatorio.</strong>${escapeHTML(state.error)}<div><button type="button" id="reintentar">Reintentar</button> &nbsp; <a href="${escapeHTML(enlaceSeguro(state.enlaces?.google||enlaceGoogleAlternativo()))}" target="_blank" rel="noopener noreferrer">Buscar directamente en Google News ↗</a></div></div>`;return}
+  if(state.vista==='noticias'&&state.error){zona.innerHTML='';st.innerHTML=`<div class="state error"><strong>No pudimos actualizar el Monitor de Noticias.</strong>${escapeHTML(state.error)}<div><button type="button" id="reintentar">Reintentar</button> &nbsp; <a href="${escapeHTML(enlaceSeguro(state.enlaces?.google||enlaceGoogleAlternativo()))}" target="_blank" rel="noopener noreferrer">Buscar directamente en Google News ↗</a></div></div>`;return}
   const datos=itemsVisibles();
   if(!datos.length){zona.innerHTML='';const alternativo=state.enlaces?.paginas?.[state.medio]||state.enlaces?.google||enlaceGoogleAlternativo();st.innerHTML=`<div class="state empty"><strong>${state.vista==='guardados'?'Tu biblioteca está vacía.':'No encontramos noticias de IA con estos filtros.'}</strong>${state.vista==='guardados'?'Guardá artículos desde la sección Noticias para crear una biblioteca personal.':explicarCero()} ${state.vista==='noticias'?`<p><a target="_blank" rel="noopener noreferrer" href="${escapeHTML(enlaceSeguro(alternativo))}">Continuar búsqueda externa ↗</a></p>`:''}</div>`;return}
   if(state.vista==='noticias'&&state.adver)st.innerHTML=`<div class="state">${escapeHTML(state.adver)}</div>`;
@@ -112,7 +112,7 @@ function exportarCSV(){const valores=Object.values(state.guardados);
   const head=['Título','Fuente','Fecha','URL','Nota personal'];const filas=valores.map(({item,nota})=>[item.titulo,item.fuente,fecha(item.fecha),item.url,nota||'']);
   const q=s=>'"'+String(s??'').replace(/"/g,'""').replace(/\r?\n/g,' ')+'"';
   const csv='\ufeff'+[head,...filas].map(row=>row.map(q).join(';')).join('\r\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),href=URL.createObjectURL(blob),a=document.createElement('a');a.href=href;a.download='observatorio_ucalp_guardados.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(href),1000);
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),href=URL.createObjectURL(blob),a=document.createElement('a');a.href=href;a.download='monitor_noticias_ucalp_guardados.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(href),1000);
 }
 function registrarEventos(){
   $('#abrir-disciplinas').addEventListener('click',()=>mostrarDisciplinas($('#abrir-disciplinas').getAttribute('aria-expanded')!=='true'));

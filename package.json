@@ -1,9 +1,9 @@
 {
-  "name": "observatorio-ucalp",
-  "version": "5.2.0",
+  "name": "monitor-noticias-ia-ucalp",
+  "version": "5.3.0",
   "private": true,
   "type": "module",
-  "description": "Observatorio UCALP de inteligencia artificial por región, facultad y carrera",
+  "description": "Monitor de Noticias de IA de UCALP por secciones geográficas, facultades y carreras",
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test"

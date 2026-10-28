@@ -25,14 +25,14 @@ rem Evita abrir por error otra version que ya esta usando el mismo puerto.
 if errorlevel 1 (
  echo.
  echo ATENCION: el puerto 4173 ya esta en uso.
- echo Cerra la consola donde tenias abierto otro Observatorio y volve a ejecutar este archivo.
+ echo Cerra la consola donde tenias abierto otro Monitor de Noticias y volve a ejecutar este archivo.
  echo De lo contrario el navegador podria mostrarte la version anterior.
  pause
  exit /b 1
 )
 echo.
 echo ================================================
-echo   OBSERVATORIO UCALP  -  SERVIDOR LOCAL
+echo   MONITOR DE NOTICIAS UCALP  -  SERVIDOR LOCAL
 echo ================================================
 echo.
 echo Abrir en el navegador: http://localhost:4173

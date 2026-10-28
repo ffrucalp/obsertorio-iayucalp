@@ -1,4 +1,4 @@
-# Observatorio UCALP · Inteligencia Artificial (Versión 5.0)
+# Monitor de Noticias de IA · UCALP (Versión 5.3)
 
 **Novedad:** búsqueda multifuente para noticias de inteligencia artificial en Argentina, Latinoamérica, Internacional y Universidades, filtradas por facultad y carrera. Conserva la identidad visual azul de UCALP y el logo aportado para el proyecto.
 
@@ -84,3 +84,11 @@ Cada noticia dispone del enlace **WhatsApp** junto a «Guardar», tanto en los r
 - Menú de facultades y carreras como sidebar plegable (en móviles, panel lateral con cierre y fondo).
 - Búsqueda de Arquitectura distingue edificios, urbanismo y construcción de arquitectura de datos o software.
 - Conserva filtros por región y carrera, biblioteca y WhatsApp.
+
+
+## Novedades de la versión 5.3
+
+- El portal se denomina **Monitor de Noticias** (cabecera, portada, pie, título del navegador y mensajes).
+- Se conservan intactos los filtros, las fuentes, el sidebar, WhatsApp y la biblioteca personal.
+- **No se cambió la clave de almacenamiento de favoritos**, para conservar los artículos guardados en el mismo dominio y navegador.
+- Las direcciones web existentes y el repositorio GitHub no necesitan renombrarse para aplicar este cambio.

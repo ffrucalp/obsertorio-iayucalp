@@ -20,4 +20,4 @@ createServer(async(req,res)=>{
  try{ruta=resolve(dir,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));}catch{res.writeHead(400);res.end();return;}
  if(!ruta.startsWith(dir+sep)||/(^|[\\/])(?:\.|lib|netlify|test)(?:[\\/]|$)/.test(ruta.slice(dir.length))||/\.(?:bat|toml|md)$/.test(ruta)) {res.writeHead(403);res.end();return;}
  try{const s=await stat(ruta);if(!s.isFile())throw Error();const content=await readFile(ruta);res.setHeader('Content-Type',tipos[extname(ruta)]||'application/octet-stream');res.writeHead(200);res.end(req.method==='HEAD'?undefined:content);}catch{res.writeHead(404);res.end('Archivo no encontrado');}
-}).listen(port,'127.0.0.1',()=>{console.log('Observatorio UCALP listo en http://localhost:'+port);});
+}).listen(port,'127.0.0.1',()=>{console.log('Monitor de Noticias UCALP listo en http://localhost:'+port);});
