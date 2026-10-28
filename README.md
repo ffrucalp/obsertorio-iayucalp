@@ -78,3 +78,9 @@ Se informa cuántos artículos fueron descartados por país incorrecto o por fal
 ## Compartir noticias por WhatsApp
 
 Cada noticia dispone del enlace **WhatsApp** junto a «Guardar», tanto en los resultados como en «Mi biblioteca». Abre WhatsApp o WhatsApp Web en una nueva pestaña con el **título y la URL de la noticia** preparados; el envío solo se efectúa si la persona confirma el mensaje. No incluye notas personales ni datos guardados en el navegador.
+
+
+## Cambios v5.2
+- Menú de facultades y carreras como sidebar plegable (en móviles, panel lateral con cierre y fondo).
+- Búsqueda de Arquitectura distingue edificios, urbanismo y construcción de arquitectura de datos o software.
+- Conserva filtros por región y carrera, biblioteca y WhatsApp.

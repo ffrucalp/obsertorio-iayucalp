@@ -13,6 +13,24 @@ function fecha(s){if(!s)return 'Sin fecha';const n=new Date(s);return Number.isN
 function persistir(){try{localStorage.setItem(KEY,JSON.stringify(state.guardados))}catch{state.error='No hay espacio para guardar en este navegador.'}}
 function actualizarRuta(){const sp=new URLSearchParams();sp.set('seccion',state.seccion);if(state.facultad)sp.set('facultad',state.facultad);if(state.carrera)sp.set('carrera',state.carrera);if(state.q)sp.set('q',state.q);if(state.periodo!=='desde2026')sp.set('periodo',String(state.periodo));history.replaceState(null,'',location.pathname+'?'+sp)}
 function inicializarRuta(){const sp=new URLSearchParams(location.search);if(secciones[sp.get('seccion')])state.seccion=sp.get('seccion');if(state.catalogo.some(f=>f.id===sp.get('facultad')))state.facultad=sp.get('facultad');if(facultadActual()?.carreras.some(c=>c.id===sp.get('carrera')))state.carrera=sp.get('carrera');state.q=(sp.get('q')||'').slice(0,90);if(sp.get('periodo')==='desde2026')state.periodo='desde2026';else if([7,30,90,180,365].includes(Number(sp.get('periodo'))))state.periodo=Number(sp.get('periodo'))}
+function mostrarDisciplinas(abierto){
+  const movil=window.matchMedia('(max-width:780px)').matches;
+  $('#portal').classList.toggle('sidebar-open', abierto);
+  $('#portal').classList.toggle('sidebar-collapsed', !abierto && !movil);
+  $('#filters-backdrop').hidden=!(abierto&&movil);
+  document.body.classList.toggle('sidebar-scroll-lock', abierto&&movil);
+  $('#abrir-disciplinas').setAttribute('aria-expanded',String(abierto));
+  $('#disciplinas-sidebar').setAttribute('aria-hidden',String(!abierto));
+  // El panel oculto no puede recibir tabulación de teclado.
+  $('#disciplinas-sidebar').inert=!abierto;
+  if(abierto&&movil)$('#cerrar-disciplinas').focus();
+}
+function cerrarSiMovil(){
+  if(window.matchMedia('(max-width:780px)').matches){
+    mostrarDisciplinas(false);
+    $('#abrir-disciplinas').focus();
+  }
+}
 function renderFacultades(){
   $('#fac-num').textContent=String(state.catalogo.length).padStart(2,'0');
   $('#facultades').innerHTML=state.catalogo.map(f=>`<button type="button" data-facultad="${escapeHTML(f.id)}" class="faculty-btn ${f.id===state.facultad?'active':''}" aria-pressed="${f.id===state.facultad}"><span class="fac-ico" aria-hidden="true">${escapeHTML(f.icono)}</span><span>${escapeHTML(f.nombre)}</span><span class="fac-arrow" aria-hidden="true">›</span></button>`).join('');
@@ -22,6 +40,7 @@ function renderFacultades(){
   $('#carrera-hint').textContent=fac?`${fac.carreras.length} áreas académicas disponibles. Se agrupan modalidades equivalentes.`:'Elegí primero una facultad.';
   const nombre=carreraActual()?.nombre||fac?.nombre||'Todas las disciplinas';
   const descripcion=carreraActual()?`Se muestran noticias que mencionan IA y áreas relacionadas con ${nombre.toLowerCase()}; no necesitan mencionar el título de la carrera.`:fac?fac.descripcion:'Noticias sobre inteligencia artificial aplicada a todas las disciplinas de la UCALP.';
+  $('#etiqueta-disciplinas').textContent=nombre==='Todas las disciplinas'?'Facultades y carreras':nombre;
   $('#focus-box').innerHTML=`<span class="upper">FOCO SELECCIONADO</span><p><strong>${escapeHTML(nombre)}</strong><br>${escapeHTML(descripcion)}</p>`;
 }
 function renderCabecera(){
@@ -86,7 +105,7 @@ function refrescar(forzar=false){
     if(sec!==state.seq)return;state.noticias=d.noticias||[];state.fecha=d.fechaConsulta;state.enlaces=d.enlaces;state.fuentes=d.fuentes||[];state.diagnostico=d.diagnostico||{};state.consultas=d.consultas||0;state.respuestas=d.respuestas||0;state.adver=d.advertencia||'';state.cargando=false;renderNoticias();
   }).catch(e=>{if(sec!==state.seq||e.name==='AbortError')return;state.error=e.message;state.cargando=false;renderNoticias()});
 }
-function cambiarFacultad(id){if(id===state.facultad){state.facultad='';state.carrera=''}else{state.facultad=id;state.carrera=''}state.vista='noticias';renderFacultades();refrescar()}
+function cambiarFacultad(id){if(id===state.facultad){state.facultad='';state.carrera=''}else{state.facultad=id;state.carrera=''}state.vista='noticias';renderFacultades();refrescar();cerrarSiMovil()}
 function toggleFavorito(item){if(state.guardados[item.url])delete state.guardados[item.url];else state.guardados[item.url]={item,nota:'',guardadoEn:new Date().toISOString()};persistir();renderNoticias()}
 function exportarCSV(){const valores=Object.values(state.guardados);
   if(!valores.length){alert('Todavía no guardaste ninguna noticia.');return}
@@ -96,10 +115,15 @@ function exportarCSV(){const valores=Object.values(state.guardados);
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),href=URL.createObjectURL(blob),a=document.createElement('a');a.href=href;a.download='observatorio_ucalp_guardados.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(href),1000);
 }
 function registrarEventos(){
+  $('#abrir-disciplinas').addEventListener('click',()=>mostrarDisciplinas($('#abrir-disciplinas').getAttribute('aria-expanded')!=='true'));
+  $('#cerrar-disciplinas').addEventListener('click',()=>{mostrarDisciplinas(false);$('#abrir-disciplinas').focus()});
+  $('#filters-backdrop').addEventListener('click',()=>mostrarDisciplinas(false));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#abrir-disciplinas').getAttribute('aria-expanded')==='true'&&window.matchMedia('(max-width:780px)').matches){mostrarDisciplinas(false);$('#abrir-disciplinas').focus()}});
+  window.matchMedia('(max-width:780px)').addEventListener('change',ev=>mostrarDisciplinas(!ev.matches));
   $('#secciones').addEventListener('click',e=>{const b=e.target.closest('[data-seccion]');if(!b||b.dataset.seccion===state.seccion)return;state.seccion=b.dataset.seccion;state.vista='noticias';refrescar()});
   $('#facultades').addEventListener('click',e=>{const b=e.target.closest('[data-facultad]');if(b)cambiarFacultad(b.dataset.facultad)});
-  $('#carrera').addEventListener('change',e=>{state.carrera=e.target.value;state.vista='noticias';renderFacultades();refrescar()});
-  $('#reset-facultad').addEventListener('click',()=>{state.facultad='';state.carrera='';state.vista='noticias';renderFacultades();refrescar()});
+  $('#carrera').addEventListener('change',e=>{state.carrera=e.target.value;state.vista='noticias';renderFacultades();refrescar();cerrarSiMovil()});
+  $('#reset-facultad').addEventListener('click',()=>{state.facultad='';state.carrera='';state.vista='noticias';renderFacultades();refrescar();cerrarSiMovil()});
   $('#buscar-form').addEventListener('submit',e=>{e.preventDefault();state.q=$('#buscar').value.trim().slice(0,90);state.vista='noticias';refrescar()});
   $('#limpiar-texto').addEventListener('click',()=>{state.q='';$('#buscar').value='';state.vista='noticias';refrescar()});
   $('#periodo').addEventListener('change',e=>{state.periodo=e.target.value==='desde2026'?'desde2026':Number(e.target.value);refrescar()});
@@ -118,7 +142,7 @@ function registrarEventos(){
   $('#estado').addEventListener('click',e=>{if(e.target.closest('#reintentar'))refrescar(true)});
   $('#exportar').addEventListener('click',exportarCSV);
 }
-async function inicializar(){registrarEventos();
+async function inicializar(){registrarEventos();mostrarDisciplinas(!window.matchMedia('(max-width:780px)').matches);
   try {const r=await fetch('/assets/catalogo.json');if(!r.ok)throw Error('No se encontró el catálogo de facultades');state.catalogo=await r.json();inicializarRuta();renderFacultades();refrescar()}
   catch(e){$('#facultades').textContent='No se pudo cargar el listado de facultades.';state.error=e.message;renderNoticias()}
 }

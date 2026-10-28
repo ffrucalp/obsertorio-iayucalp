@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-  <script src="/app.js" type="module"></script>
+  <link rel="stylesheet" href="/styles.css?v=5.2">
+  <script src="/app.js?v=5.2" type="module"></script>
 </head>
 <body>
   <div class="top-stripe"></div>
@@ -42,8 +42,10 @@
         <button type="button" class="geotab" data-seccion="internacional"><span>03 / MUNDO</span><strong>Internacional</strong><b>↗</b></button>
         <button type="button" class="geotab" data-seccion="universidades"><span>04 / ACADEMIA</span><strong>Universidades</strong><b>↗</b></button>
       </nav>
-      <div class="portal">
-        <aside class="filters" aria-labelledby="filtros-titulo">
+      <div class="portal" id="portal">
+        <div class="filters-backdrop" id="filters-backdrop" hidden></div>
+        <aside class="filters" id="disciplinas-sidebar" aria-labelledby="filtros-titulo">
+          <div class="sidebar-top"><div><span class="upper">EXPLORAR</span><strong>Facultades y carreras</strong></div><button type="button" class="sidebar-close" id="cerrar-disciplinas" aria-label="Cerrar menú de disciplinas" title="Cerrar menú">×</button></div>
           <div class="filters-head"><div class="upper">IA POR DISCIPLINA</div><h2 id="filtros-titulo">Cada carrera.<br><em>Su mirada sobre la IA.</em></h2><p>Elegí una facultad y, opcionalmente, una carrera: solo verás noticias de inteligencia artificial relacionadas con ese campo.</p></div>
           <div class="filters-label"><span>FACULTADES</span><span id="fac-num">07</span></div>
           <div id="facultades" class="faculty-list" aria-label="Seleccionar facultad"><div class="loading-inline">Cargando facultades…</div></div>
@@ -52,7 +54,7 @@
           <button type="button" class="reset" id="reset-facultad">↺ Ver todas las disciplinas</button>
         </aside>
         <section class="feed-area" aria-labelledby="feed-titulo">
-          <div class="feed-toolbar"><div><span class="upper">/ RADAR DE INTELIGENCIA ARTIFICIAL</span><h2 id="feed-titulo">IA en <em>Argentina</em></h2><p id="feed-subtitulo">Noticias de IA filtradas por facultades y carreras de la UCALP.</p></div><div class="head-actions"><span class="updated" id="actualizado">Sin consultar</span><button class="icon-btn" id="recargar" type="button" aria-label="Actualizar resultados" title="Actualizar noticias">↻</button></div></div>
+          <div class="feed-toolbar"><div class="feed-heading"><button type="button" class="sidebar-toggle" id="abrir-disciplinas" aria-controls="disciplinas-sidebar" aria-expanded="true"><span class="sidebar-toggle-ico" aria-hidden="true">☰</span><span id="etiqueta-disciplinas">Facultades y carreras</span><span class="sidebar-toggle-arrow" aria-hidden="true">›</span></button><span class="upper">/ RADAR DE INTELIGENCIA ARTIFICIAL</span><h2 id="feed-titulo">IA en <em>Argentina</em></h2><p id="feed-subtitulo">Noticias de IA filtradas por facultades y carreras de la UCALP.</p></div><div class="head-actions"><span class="updated" id="actualizado">Sin consultar</span><button class="icon-btn" id="recargar" type="button" aria-label="Actualizar resultados" title="Actualizar noticias">↻</button></div></div>
           <form id="buscar-form" class="searchbar" role="search"><span class="magnify" aria-hidden="true">⌕</span><label for="buscar" class="sr-only">Buscar noticias</label><input id="buscar" type="search" placeholder="Buscar dentro de IA: evaluación, diagnósticos, privacidad…" maxlength="90"><button type="submit">Buscar <span aria-hidden="true">↗</span></button></form>
           <div class="options"><span class="ia-obligatorio" title="Todas las consultas y noticias se filtran por IA">✦ FILTRO OBLIGATORIO: IA</span><label for="periodo">PERÍODO <select id="periodo"><option value="7">7 días</option><option value="30">30 días</option><option value="90">90 días</option><option value="180">180 días</option><option value="365">1 año</option><option value="desde2026" selected>Desde 01/01/2026</option></select></label><label for="medio">MEDIO <select id="medio"><option value="todos">Todos los medios</option><option value="LA NACION">LA NACION</option><option value="Clarín">Clarín</option><option value="Infobae">Infobae</option><option value="otros">Otros medios</option></select></label><label for="orden">ORDEN <select id="orden"><option value="fecha">Más recientes</option><option value="fuente">Por fuente</option></select></label><button class="filter-clear" id="limpiar-texto" type="button">Limpiar búsqueda ×</button></div>
           <div id="fuentes-info" class="sources-info" aria-live="polite">Fuentes: Google News · Bing News · GDELT · RSS editoriales</div><div id="media-links" class="direct-sources" aria-label="Continuar búsqueda en diarios argentinos"></div><div class="results-bar"><div class="view-switch" role="tablist" aria-label="Vista de noticias"><button type="button" role="tab" data-vista="noticias" aria-selected="true" class="view active">Noticias <span id="count">—</span></button><button type="button" role="tab" data-vista="guardados" aria-selected="false" class="view">Mi biblioteca <span id="saved-count">0</span></button></div><button id="exportar" type="button" class="export-btn" title="Exportar noticias guardadas a CSV">↧ Exportar guardados</button></div>

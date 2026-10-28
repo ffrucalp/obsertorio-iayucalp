@@ -221,3 +221,43 @@ test('integración: Psicología conserva filtro disciplinar, muestra Perú y Mé
  assert.equal(universidades.noticias.length,3);
  assert.ok(ar.diagnostico.fueraRegion>=2);
 });
+
+test('Arquitectura: descarta arquitectura de datos y conserva arquitectura edilicia, urbanismo y BIM',()=>{
+ const facultad=FACULTADES.find(f=>f.id==='arquitectura');
+ const carrera=facultad.carreras.find(c=>c.id==='arquitectura');
+ for(const titulo of [
+   'Gran salida laboral: la UTN te enseña Arquitectura de Datos con IA desde cero',
+   'IA: arquitectura de software para aplicaciones más rápidas',
+   'Los arquitectos de datos con IA son cada vez más buscados',
+   'Nuevas arquitecturas de redes neuronales y procesadores con IA',
+   'Artificial intelligence transforms data architecture in cloud systems'
+ ])assert.equal(esNoticiaDeDisciplina({titulo},facultad,carrera),false,titulo);
+ for(const titulo of [
+   'Archicad 30 llega con nuevas herramientas de inteligencia artificial para arquitectura y construcción',
+   'Inteligencia artificial mejora el diseño arquitectónico de edificios sustentables',
+   'IA aplicada al urbanismo y la planificación de ciudades',
+   'AI tools assist architects with BIM projects',
+   'Inteligencia artificial para proyectos de arquitectura residencial'
+ ])assert.equal(esNoticiaDeDisciplina({titulo},facultad,carrera),true,titulo);
+});
+
+test('Arquitectura: consultas focalizadas en edificios, diseño y construcción y no en datos informáticos',()=>{
+ const p=validarParametros(new URLSearchParams('facultad=arquitectura&carrera=arquitectura&periodo=desde2026'));
+ const plan=planificarFuentes(p,new Date('2026-10-28'));
+ const queries=plan.filter(x=>x.nombre==='Google News').map(x=>new URL(x.url).searchParams.get('q'));
+ assert.ok(queries.some(q=>q.includes('diseño arquitectónico')));
+ assert.ok(queries.some(q=>q.includes('construcción')));
+ assert.equal(queries.some(q=>q.includes('arquitectura de datos')),false);
+});
+
+test('Arquitectura + Argentina: integración excluye cursos de arquitectura de datos',async()=>{
+ const p=validarParametros(new URLSearchParams('seccion=argentina&facultad=arquitectura&carrera=arquitectura'));
+ const fake=async()=>({ok:true,text:async()=>feed(
+   item('Gran salida laboral: la UTN te enseña Arquitectura de Datos con IA desde cero','https://ejemplo.com.ar/utn'),
+   item('Archicad 30 llega con nuevas herramientas de inteligencia artificial para arquitectura y construcción','https://ejemplo.com.ar/archicad')
+ )});
+ const r=await consultarNoticias(p,{fetchImpl:fake,reloj:()=>Date.parse('2026-10-28T12:00:00Z'),forzar:true});
+ assert.equal(r.noticias.length,1);
+ assert.match(r.noticias[0].titulo,/archicad/i);
+ assert.ok(r.diagnostico.sinDisciplina>0);
+});

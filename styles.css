@@ -87,3 +87,39 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .card-links a.share-whatsapp:hover{color:#0d6339;background:#e0f5e9;border-color:#85c9a1}
 .card-links a.share-whatsapp svg{flex:none;display:block}
 @media(max-width:550px){.card-links{column-gap:10px;row-gap:11px}}
+
+
+/* Versión 5.2 — Navegación por disciplinas en un sidebar plegable.
+   En escritorio ocupa una columna, en móviles se desliza sobre el contenido. */
+.portal{grid-template-columns:minmax(260px,296px) minmax(0,1fr);gap:26px;transition:grid-template-columns .2s ease}
+.portal.sidebar-collapsed{grid-template-columns:minmax(0,1fr)}
+.portal.sidebar-collapsed .filters{display:none}
+.filters{max-height:calc(100vh - 30px);overflow-y:auto;overscroll-behavior:contain;padding:0 17px 18px;border-radius:9px;box-shadow:0 10px 35px rgba(9,77,113,.06);scrollbar-width:thin;scrollbar-color:#b4d2df transparent}
+.sidebar-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px 6px 14px;margin-bottom:17px;background:rgba(255,255,255,.97);border-bottom:1px solid #dceaf1;backdrop-filter:blur(8px)}
+.sidebar-top .upper{font-size:9px;font-weight:700;letter-spacing:.09em}
+.sidebar-top strong{display:block;color:#194b64;font-size:13px;margin-top:1px}
+.sidebar-close{border:1px solid #c9dfe9;background:#f1f8fb;color:#0a6084;border-radius:7px;width:32px;height:32px;font-size:23px;line-height:1}
+.sidebar-close:hover{background:#e3f2f9}
+.filters-head{padding:0 5px 18px}
+.filters-head h2{font-size:27px}
+.feed-heading{min-width:0}
+.sidebar-toggle{display:inline-flex;align-items:center;gap:10px;margin:0 0 15px;padding:9px 13px 9px 10px;border:1px solid #bad9e8;background:#fff;color:#075a7d;font-size:11px;font-weight:700;border-radius:7px;box-shadow:0 2px 8px rgba(8,72,103,.035)}
+.sidebar-toggle:hover{background:#eaf6fc;border-color:#81b8d2}
+.sidebar-toggle[aria-expanded="true"]{background:#e7f4fb;border-color:#b0d6e7}
+.sidebar-toggle-ico{display:grid;place-items:center;background:#d6edf8;width:25px;height:25px;border-radius:5px;font-size:15px;color:#0a668b}
+.sidebar-toggle-arrow{font-size:19px;line-height:1;color:#74a4bc}
+.filters-backdrop[hidden]{display:none!important}
+@media(max-width:1050px){.portal{grid-template-columns:260px minmax(0,1fr);gap:18px}}
+@media(max-width:780px){
+  .portal,.portal.sidebar-collapsed{display:block}
+  .portal .filters,.portal.sidebar-collapsed .filters{display:block;position:fixed;z-index:51;top:0;left:0;bottom:0;width:min(360px,90vw);height:100dvh;max-height:none;overflow-y:auto;overscroll-behavior:contain;margin:0;padding:0 20px 24px;border-radius:0 16px 16px 0;box-shadow:14px 0 55px rgba(5,48,76,.23);transform:translateX(-110%);visibility:hidden;transition:transform .25s ease,visibility .25s ease}
+  .portal.sidebar-open .filters{transform:translateX(0);visibility:visible}
+  .filters-backdrop:not([hidden]){position:fixed;inset:0;z-index:50;background:rgba(9,30,48,.44);backdrop-filter:blur(2px)}
+  body.sidebar-scroll-lock{overflow:hidden}
+  .sidebar-top{padding:22px 5px 15px}
+  .faculty-list{grid-template-columns:1fr}
+  .filters-head h2 br{display:block}
+  .sidebar-toggle{margin-bottom:12px}
+}
+@media(max-width:550px){.feed-heading{width:100%}.sidebar-toggle{max-width:100%}.feed-toolbar{gap:10px}.sidebar-toggle #etiqueta-disciplinas{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){.portal .filters{transition:none}}
